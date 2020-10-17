@@ -1,0 +1,128 @@
+<div id="mainProgramDiv">
+
+<!--CSS-->
+	<style>
+		#kgToPoundConverterDiv{
+			border: 1px solid #e4e4e4; 
+		    border-radius: 5px;
+		    background-color: white;
+		    font-family : 'Open Sans', Helvetica, Arial, sans-serif; 
+		    box-shadow : 1px 2px #f2f2f2;
+            height:250px;
+			padding-top:10px;
+            padding-left:10px;
+		
+		}
+		
+		#kgToPoundConverterDiv #kgInputDiv,
+		#kgToPoundConverterDiv #toDiv,
+		#kgToPoundConverterDiv #poundInputDiv{
+		
+			 padding-bottom:15px;
+		}
+		
+		#kgToPoundConverterDiv #toDiv{
+			padding-left:5px;
+		}
+		
+		#kgToPoundConverterDiv #kgInput,
+		#kgToPoundConverterDiv #poundInput{
+			width:150px;
+		    height:30px;
+		    text-align:right;
+		    margin-left:3px;
+		    padding-right:30px;
+		    cursor:pointer;
+		    border: 1px solid #aaaaaa;
+		    border-radius:5px;
+		
+		}
+		
+		#kgToPoundConverterDiv #kgInput::-webkit-outer-spin-button,
+		#kgToPoundConverterDiv #kgInput::-webkit-inner-spin-button,
+		#kgToPoundConverterDiv #poundInput::-webkit-outer-spin-button,
+		#kgToPoundConverterDiv #poundInput::-webkit-inner-spin-button{
+
+			   -webkit-appearance: none;
+				margin: 0;
+		
+		}
+
+		#kgToPoundConverterDiv #kgInput[type=number],
+		#kgToPoundConverterDiv #poundInput[type=number]{
+		
+			-moz-appearance: textfield;
+		}
+		
+		#kgInput:hover,
+		#poundInput:hover{
+			 box-shadow: 1px 1px #949494;
+		}
+		
+		#kgInput:focus,
+		#poundInput:focus{
+			outline: none ;
+		    border-color: #2c2c2c ;
+		}
+		
+		#kgToPoundConverterDiv #sdraPowerDiv{
+		font-size: 10px;
+		padding:5px;
+	    }
+		
+	</style>
+	
+<!--Html-->
+	<div id="kgToPoundConverterDiv">
+		<div>
+			<h3>Kg to Pound Converter</h3>
+		</div>
+		<div id="kgInputDiv">
+			<input type="number" id="kgInput" value="1.000"/><span style="margin-left:-20px;font-size:12px;">kg</span>
+		</div>
+		<div id="toDiv">
+            is equal to
+        </div>
+		<div id="poundInputDiv">
+			<input type="number" id="poundInput" value="2.205" /><span style="margin-left:-20px;font-size:12px;">lbs</span>
+		</div>
+		
+		<div id="sdraPowerDiv">
+            Powered by <a href="https://s-dra.com/">S-DRA</a>
+        </div>
+
+	</div>
+<!--Script-->
+	<script>
+		var kg = document.getElementById("kgInput");
+		var pound = document.getElementById("poundInput");
+		
+		//Kg onchange 
+		kg.onchange = function(){
+		
+			pound.value = (parseFloat(this.value)*2.20462).toFixed(3);
+		
+		}
+		
+		kg.onkeyup = function(){
+		
+			pound.value = (parseFloat(this.value)*2.20462).toFixed(3);
+		}
+		
+		//Pound onChange
+		pound.onchange = function(){
+		
+			kg.value = (parseFloat(this.value)/2.20462).toFixed(3);
+		}
+		
+		pound.onkeyup = function(){
+		
+			kg.value = (parseFloat(this.value)/2.20462).toFixed(3);
+		}
+		
+	
+	</script>
+
+
+
+</div>
